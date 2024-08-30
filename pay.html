@@ -17,10 +17,9 @@
     </script>
 </head>
 
-<body>
+<body class="payBody">
     <div class="bg">
         <div class="container">
-            
             <div class="pay">
                 <div class="pay_left">
                     <div id="langSelect" class="languageBox">
@@ -118,21 +117,13 @@
             //預設語言
             if (langList.hasOwnProperty(langDefault)) {
                 var langValue = langList[langDefault];
-                console.log(langValue); // 輸出: English
-                
-                // 使用 jQuery 將鍵和值顯示在 lang_text 這個 div 元素中
                 $('.lang_text').text(langValue);
             } else {
-                // 如果 langDefault 不存在於 langList 中，顯示錯誤信息
                 $('#lang_text').text('選擇語言');
             }
             //語言列表
-            // var langDefaultSel="";
             $.each(langList, function(key, value) {
-                // 創建新的 li 元素
-                var listItem = $('<li></li>')
-                    .attr('data-lang', key) // 設置 data-lang 屬性
-                    .text(value); // 設置列表項的文本
+                var listItem = $('<li></li>').attr('data-lang', key).text(value);
 
                 // 將 li 元素添加到 ul 中
                 $('#langListItem').append(listItem);
@@ -168,7 +159,16 @@
 
             //抓色系
             var root = document.documentElement;
-            root.style.setProperty('--primary',json.Background.BG_COLOR);
+            var jsonCOLOR=json.Background.BG_COLOR;
+            var jsonBG=json.Background.BG_IMG_URL;
+
+            root.style.setProperty('--primary',jsonCOLOR);
+
+            if(!jsonBG==""){
+                $('body').css('background-image','url("'+jsonBG+'")');
+                $('body').addClass('addBG');
+            }
+            
             
 
             $('#infoTIT').text(lang.PAYMENT_INFO);
@@ -370,9 +370,9 @@
         }
 
         //表單送出
-        function check_submit() { $('#form').submit(); alert('表單送出!'); }
+        function check_submit() { $('#form').submit(); console.log('表單送出!'); }
 
-        // 節流函數
+        // 節流
         function throttle(func, limit) {
             let lastFunc;
             let lastRun = 0;
@@ -395,7 +395,7 @@
             };
         }
 
-        // 調整 TabBar 的函數
+        //TabBar 
         function adjustTabBar() {
             var paidTabWidth = $('#PAID_TAB').width();
             var tabBarWidth = $('#TabBar').width();
@@ -407,22 +407,22 @@
             }
         }
 
-        // 使用節流函數
+        //節流
         $(document).ready(function() {
             // 初始執行
             adjustTabBar();
 
-            // 對 resize 事件進行節流處理
-            $(window).on('resize', throttle(adjustTabBar, 200)); // 200ms 是節流間隔，可以根據需要調整
+            // 間隔
+            $(window).on('resize', throttle(adjustTabBar, 500)); 
         });
 
-
+        //滑鼠感應
         $(document).ready(function() {
             var isMouseDown = false;
             var startX, scrollLeft;
 
             $('#TabBar').on('mousedown', function(e) {
-                if (e.which === 1) { // 確保是左鍵點擊
+                if (e.which === 1) { 
                     isMouseDown = true;
                     $(this).css('cursor', 'grabbing');
                     startX = e.pageX - $(this).offset().left;
@@ -434,7 +434,7 @@
                 if (isMouseDown) {
                     e.preventDefault();
                     var x = e.pageX - $('#TabBar').offset().left;
-                    var walk = (x - startX) * 2; // 調整 2 以改變滾動速度
+                    var walk = (x - startX) * 2;
                     $('#TabBar').scrollLeft(scrollLeft - walk);
                     
                 }
@@ -637,8 +637,8 @@
             }
         },
         "Background": {
-            "BG_COLOR":"#333333",
-            "BG_IMG_URL":""
+            "BG_COLOR":"#5eadb4",
+            "BG_IMG_URL":"https://thumbs.dreamstime.com/z/%E8%AE%BE%E8%AE%A1%E4%B8%BA-d%E6%B8%B8%E6%88%8F%E7%9A%84%E7%BE%8E%E4%B8%BD%E8%83%8C%E6%99%AF-%E8%AF%A5%E5%9B%BE%E6%98%BE%E7%A4%BA%E4%BA%86%E4%B8%BA-d%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BE%8E%E4%B8%BD%E8%83%8C%E6%99%AF-277910282.jpg"
         }
     }
     );

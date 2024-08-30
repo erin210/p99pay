@@ -426,33 +426,35 @@
             
             let langDefault = json.LanguageDefault;//語言
             let userLang = '';//對應用戶語言
-            let lang=''
+            let lang='';
+
+            var langList=json.LanguageList;
             
             // 抓cookie的語言
             userLang = getCookie('userLang');
 
             if (userLang) {
-                langDefault=langSystem(userLang);
+                langDefault=langSystem(userLang,json);
                 lang = json.StringID[langDefault];//對應預設語言
             } else {
                 userLang = navigator.language || navigator.userLanguage;
-                console.log(userLang);
-                langDefault=langSystem(userLang);
-                lang = json.StringID[langDefault];//對應預設語言
-                setCookie(langDefault);
                 
+                langDefault=langSystem(userLang,json);
+                lang = json.StringID[langDefault];//對應預設語言
+                
+                setCookie(langDefault);
             }
 
             //判斷用戶語系
-            function langSystem(ss){
-                // 是否為中文語系?
-                if (ss.startsWith('zh')) {
-                    if (ss === 'zh-TW' || ss === 'zh-HK' || ss === 'zh-MO' || ss === 'zh-CN' || ss === 'zh-SG') {
-                        return langDefault='zh_TW';
-                    } 
-                }else {
-                    return langDefault='en_US';
-                }
+            function langSystem(ss,json){
+                let langDefault = 'en_US'; //預設英文(無支援語系)
+                let ssLang=ss.replace('-','_');
+                let languageKeys = Object.keys(json.LanguageList); //支援的語言
+
+                if (languageKeys.some(key => key.startsWith(ssLang))) {
+                    langDefault = languageKeys.find(key => key.startsWith(ssLang));
+                } 
+                return langDefault;
             }
 
             //set cookie
