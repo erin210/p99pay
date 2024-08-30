@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P99Pay</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function initFunction(jsonObj) {
+            renderInfo(jsonObj);
+        }
+  </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form role="form" id="form" action="" method="post" target="_self" class="form-payment" onsubmit="return check_submit();">
+            <div class="text_visible">
+                <h1>請輸入PAID</h1>
+                <input type="text" name="SPAID" id="SPAID">
+                <a href="javascript:void(0)" class="btn" onclick="return check_submit()">確認交易</a>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <p>© 2023 P99Pay All Copyright reserved</p>
+    </div>
+    
+    <script>
+
+        function renderInfo(json) {
+            Object.keys(json).forEach(function(k){
+                var eleName = '#' + k;
+                console.log(eleName + ' - ' + json[k]);
+                if ($(eleName).length <= 0) {
+                    appendElement_Input('#form',k,json[k]);
+                }else{
+                    $(eleName).val(json[k]);
+                }
+            });
+        }
+        
+        function appendElement_Input(ele, name, value) {
+            var textHtml = '<input type="text" name="' + name + '"';
+            textHtml += ' value="' + value + '"';
+            textHtml += '/>';
+            $(ele).append(textHtml);
+        }
+        
+        function check_submit(){        
+            document.getElementById('form').submit();
+        }
+        
+        
+    </script>
+</body>
+    <script>
+        initFunction({"Type":"SelectPAID","data":"eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDI0MDEwMjE3MjUzOSIsIkNVSUQiOiJVU0QiLCJQQUlEIjoiIiwiQU1PVU5UIjoiMTAiLCJSRVRVUk5fVVJMIjoiaHR0cDpcL1wvMTQuMjI1LjMuMTMxXC90ZXN0XC9yZXR1cm5fdXJsLnBocCIsIk9SREVSX1RZUEUiOiJFIiwiUFJPRFVDVF9OQU1FIjoiXHU2ZTJjXHU4YTY2XHU0ZWE0XHU2NjEzIDEwIFVTRCIsIlBST0RVQ1RfSUQiOiIiLCJVU0VSX0FDQ1RJRCI6IjYwMDAyMEFCQ0RFRkdKSkoiLCJFUlFDIjoiU2xETFdsc2RlTVhVN1VDRFU5dUlSb2ZMMlhvPSJ9","COID":"C000010000001CP20240102172539","PRODUCT":"\u6e2c\u8a66\u4ea4\u6613 10 USD","AMOUNTList":[{"AMOUNT":"70.00","CUID":"CNY"},{"AMOUNT":"80.00","CUID":"HKD"},{"AMOUNT":"320.00","CUID":"TWD"},{"AMOUNT":"10.00","CUID":"USD"}],"LastSelect":"","PAIDList":[{"PAID":"COPKWP09","ShortName":"KIWI WALLET","FullName":"KIWI WALLET","Group":"WALLET","CUID":"USD","Keyword":"COPKWP09|KIWI WALLET|KIWI WALLET","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/KIWI.svg"},{"PAID":"TELTCC01","ShortName":"\u53f0\u7063\u5927\u54e5\u5927 (\u624b\u6a5f\u5e33\u55ae\u652f\u4ed8)","FullName":"\u53f0\u7063\u5927\u54e5\u5927 (\u624b\u6a5f\u5e33\u55ae\u652f\u4ed8)","Group":"TELECO","CUID":"TWD","Keyword":"TELTCC01|\u53f0\u7063\u5927\u54e5\u5927 \u624b\u6a5f|\u53f0\u54e5\u5927\u624b\u6a5f (\u5e33\u55ae\u652f\u4ed8)","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/tm.svg"},{"PAID":"COPGAM02","ShortName":"GASH \u9ede\u6578\u5361","FullName":"GASH \u9ede\u6578\u5361","Group":"PINCODE","CUID":"TWD","Keyword":"COPGAM02|GASH \u9ede\u6578\u5361\u5145\u503c|GASH \u9ede\u6578\u5361\u5145\u503c","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/gash.svg"},{"PAID":"COPGAM05","ShortName":"GASH \u9ede\u6578\u5361","FullName":"GASH \u9ede\u6578\u5361","Group":"PINCODE","CUID":"TWD","Keyword":"COPGAM05|GASH \u9ede\u6578\u5361\u5145\u503c|GASH \u9ede\u6578\u5361\u5145\u503c","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/gash.svg"},{"PAID":"COPKWP01","ShortName":"KIWI PIN","FullName":"KIWI PINCODE","Group":"PINCODE","CUID":"USD","Keyword":"COPKWP01|KIWI PIN|KIWI PINCODE","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/KIWI.svg"},{"PAID":"BNKBES01","ShortName":"\u4fe1\u7528\u5361","FullName":"\u6c38\u8c50\u4fe1\u7528\u5361","Group":"BANK","CUID":"TWD","Keyword":"BNKBES01|\u4fe1\u7528\u5361|\u6c38\u8c50\u4fe1\u7528\u5361","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/card.svg"},{"PAID":"BNKSEP01","ShortName":"\u5fae\u4fe1\u652f\u4ed8","FullName":"\u5fae\u4fe1\u652f\u4ed8","Group":"BANK","CUID":"HKD","Keyword":"BNKSEP01|\u5fae\u4fe1\u652f\u4ed8|\u5fae\u4fe1\u652f\u4ed8","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/wechat.svg"},{"PAID":"BNKSEP02","ShortName":"\u652f\u4ed8\u5bf6","FullName":"\u652f\u4ed8\u5bf6","Group":"BANK","CUID":"HKD","Keyword":"BNKSEP02|\u652f\u4ed8\u5bf6|\u652f\u4ed8\u5bf6","ICON_URL":"https:\/\/api-page.p99pay.com\/assets\/img\/Alipay.svg"}],"LanguageDefault":"zh_TW","LanguageList":{"en_US":"English","zh_TW":"\u4e2d\u6587"},"StringID":{"en_US":{"PA_GROUP_BANK":"\u91d1\u878d\u985e(en)","PA_GROUP_PINCODE":"\u9ede\u6578\u5361(en)","PA_GROUP_TELECO":"\u96fb\u4fe1\u5e33\u55ae(en)","PA_GROUP_WALLET":"\u96fb\u5b50\u9322\u5305(en)","PAYMENT_CONFIRM":"\u78ba\u8a8d\u4ed8\u6b3e(en)","PAYMENT_INFO":"\u672c\u6b21\u6b32\u652f\u4ed8\u7684\u5167\u5bb9\uff1a(en)","PAYMENT_INFO_AMOUNT":"\u91d1\u984d(en)","PAYMENT_INFO_COID":"\u4ea4\u6613\u55ae\u865f(en)","PAYMENT_INFO_CUID":"\u5e63\u5225(en)","PAYMENT_INFO_PRODUCT":"\u5546\u54c1\u540d\u7a31(en)","PAYMENT_SELECT":"\u8acb\u9078\u64c7\u4ed8\u6b3e\u65b9\u5f0f\uff1a(en)"},"zh_TW":{"PA_GROUP_BANK":"\u91d1\u878d\u985e","PA_GROUP_PINCODE":"\u9ede\u6578\u5361","PA_GROUP_TELECO":"\u96fb\u4fe1\u5e33\u55ae","PA_GROUP_WALLET":"\u96fb\u5b50\u9322\u5305","PAYMENT_CONFIRM":"\u78ba\u8a8d\u4ed8\u6b3e","PAYMENT_INFO":"\u672c\u6b21\u6b32\u652f\u4ed8\u7684\u5167\u5bb9\uff1a","PAYMENT_INFO_AMOUNT":"\u91d1\u984d","PAYMENT_INFO_COID":"\u4ea4\u6613\u55ae\u865f","PAYMENT_INFO_CUID":"\u5e63\u5225","PAYMENT_INFO_PRODUCT":"\u5546\u54c1\u540d\u7a31","PAYMENT_SELECT":"\u8acb\u9078\u64c7\u4ed8\u6b3e\u65b9\u5f0f\uff1a"}},"Background":""});
+    </script>
+</html>
