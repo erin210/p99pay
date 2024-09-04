@@ -306,11 +306,11 @@ body.payBody.addBG {
 }
 .pay .pay_right .info .list .list_box .listpic {
   justify-content: flex-end;
-  width: 6em;
+  width: 5em;
   height: 2.5em;
 }
 .pay .pay_right .info .list .list_box .listpic img {
-  width: auto;
+  width: 5em;
   max-height: 100%;
 }
 .pay .pay_right .info .confirm {
