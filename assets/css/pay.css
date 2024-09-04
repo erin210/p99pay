@@ -306,7 +306,6 @@ body.payBody.addBG {
 }
 .pay .pay_right .info .list .list_box .listpic {
   justify-content: flex-end;
-  width: 6em;
   height: 2.5em;
 }
 .pay .pay_right .info .list .list_box .listpic img {
