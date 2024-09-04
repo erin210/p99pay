@@ -257,6 +257,9 @@ body.payBody.addBG {
 .pay .pay_right .info .tab_bar.tab_scroll .type .type_box p {
   white-space: nowrap;
   padding-top: 0;
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* for Chrome、Safari */
+  -moz-user-select: none; /* for Mozilla、Firefox */
 }
 .pay .pay_right .info .tab_bar.tab_scroll::-webkit-scrollbar {
   display: none;
