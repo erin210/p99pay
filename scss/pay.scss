@@ -228,7 +228,7 @@ body {
       justify-content: space-between;
       align-items: center;
       color: $logo_grey;
-      padding: 3vw 40px;
+      padding: 2.5vw 40px;
       box-sizing: border-box;
       margin-bottom: 25px;
 
@@ -335,7 +335,7 @@ body {
         &.tab_scroll {
           position: relative;
           width: auto;
-          height: 6.6vw;
+          height: 5.6vw;
           overflow-x: scroll;
           overflow-y: hidden;
           -ms-overflow-style: none;
@@ -426,7 +426,7 @@ body {
             justify-content: flex-end;
             // border: 1px solid #f00;
             // width: 6em;
-            height: 1.7em;
+            height: 1.5em;
             img {
               display: block;
               // width: auto;
@@ -669,7 +669,7 @@ body {
 
             // margin: 30px 0;
             .type_box {
-              width: 25%;
+              // width: 25%;
 
               // margin: 0 1.5%;
               // .imgbox {
@@ -877,7 +877,7 @@ body {
             margin-bottom: -5px;
 
             .type_box {
-              width: 24%;
+              // width: 24%;
 
               // margin: 0 2px;
               // .imgbox {
@@ -933,7 +933,7 @@ body {
               .type_box {
                 // min-width: 110px;
                 flex-grow: 1;
-                padding: .5em 4.3vw;
+                padding: .5em 1.1em;
 
                 p {
                   white-space: nowrap;

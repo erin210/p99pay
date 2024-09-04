@@ -158,7 +158,7 @@ body.payBody.addBG {
   justify-content: space-between;
   align-items: center;
   color: #727171;
-  padding: 3vw 40px;
+  padding: 2.5vw 40px;
   box-sizing: border-box;
   margin-bottom: 25px;
 }
@@ -237,7 +237,7 @@ body.payBody.addBG {
 .pay .pay_right .info .tab_bar.tab_scroll {
   position: relative;
   width: auto;
-  height: 6.6vw;
+  height: 5.6vw;
   overflow-x: scroll;
   overflow-y: hidden;
   -ms-overflow-style: none;
@@ -305,7 +305,7 @@ body.payBody.addBG {
 }
 .pay .pay_right .info .list .list_box .listpic {
   justify-content: flex-end;
-  height: 1.7em;
+  height: 1.5em;
 }
 .pay .pay_right .info .list .list_box .listpic img {
   display: block;
@@ -455,9 +455,6 @@ body.payBody.addBG {
     top: 5vw;
     margin-top: -2vw;
   }
-  .pay .pay_right .info .tab_bar .type .type_box {
-    width: 25%;
-  }
   .pay .pay_right .info .tab_bar .type .type_box.active {
     flex-direction: row;
     align-items: center;
@@ -602,9 +599,6 @@ body.payBody.addBG {
     margin-top: 0;
     margin-bottom: -5px;
   }
-  .pay .pay_right .info .tab_bar .type .type_box {
-    width: 24%;
-  }
   .pay .pay_right .info .tab_bar .type .type_box p {
     font-size: 12px;
     padding-top: 0;
@@ -640,7 +634,7 @@ body.payBody.addBG {
   }
   .pay .pay_right .info .tab_bar.tab_scroll .type .type_box {
     flex-grow: 1;
-    padding: 0.5em 4.3vw;
+    padding: 0.5em 1.1em;
   }
   .pay .pay_right .info .tab_bar.tab_scroll .type .type_box p {
     white-space: nowrap;
