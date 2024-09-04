@@ -310,7 +310,7 @@ body.payBody.addBG {
   height: 2.5em;
 }
 .pay .pay_right .info .list .list_box .listpic img {
-  width: 5em;
+  width: auto;
   max-height: 100%;
 }
 .pay .pay_right .info .confirm {
