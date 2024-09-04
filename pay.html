@@ -67,7 +67,6 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script>
  
         function renderInfo(json) {
@@ -79,7 +78,6 @@
             var langDefault = json.LanguageDefault;//語言
             var userLang = '';//對應用戶語言
             var langList=json.LanguageList;
-            // console.log(langList);
             
 
             // 抓cookie的語言
@@ -108,11 +106,6 @@
                 } 
                 return langDefault;
             }
-
-
-
-            //語言選擇
-            // var langDefaultSel="";
             
             //預設語言
             if (langList.hasOwnProperty(langDefault)) {
@@ -372,6 +365,26 @@
         //表單送出
         function check_submit() { $('#form').submit(); console.log('表單送出!'); }
 
+        
+
+        //TabBar 
+        function adjustTabBar() {
+            var paidTabWidth = $('#PAID_TAB').width();
+            var tabBarWidth = $('#TabBar').width();
+
+            if (paidTabWidth <= tabBarWidth) {
+                $('#TabBar').removeClass('tab_scroll');
+            } else {
+                $('#TabBar').addClass('tab_scroll');
+            }
+        }
+
+        //初始執行節流
+        $(document).ready(function() {
+            adjustTabBar();
+            $(window).on('resize', throttle(adjustTabBar, 500)); 
+        });
+
         // 節流
         function throttle(func, limit) {
             let lastFunc;
@@ -394,27 +407,6 @@
                 }
             };
         }
-
-        //TabBar 
-        function adjustTabBar() {
-            var paidTabWidth = $('#PAID_TAB').width();
-            var tabBarWidth = $('#TabBar').width();
-
-            if (paidTabWidth <= tabBarWidth) {
-                $('#TabBar').removeClass('tab_scroll');
-            } else {
-                $('#TabBar').addClass('tab_scroll');
-            }
-        }
-
-        //節流
-        $(document).ready(function() {
-            // 初始執行
-            adjustTabBar();
-
-            // 間隔
-            $(window).on('resize', throttle(adjustTabBar, 500)); 
-        });
 
         //滑鼠感應
         $(document).ready(function() {
@@ -637,8 +629,8 @@
             }
         },
         "Background": {
-            "BG_COLOR":"#5eadb4",
-            "BG_IMG_URL":"https://thumbs.dreamstime.com/z/%E8%AE%BE%E8%AE%A1%E4%B8%BA-d%E6%B8%B8%E6%88%8F%E7%9A%84%E7%BE%8E%E4%B8%BD%E8%83%8C%E6%99%AF-%E8%AF%A5%E5%9B%BE%E6%98%BE%E7%A4%BA%E4%BA%86%E4%B8%BA-d%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BE%8E%E4%B8%BD%E8%83%8C%E6%99%AF-277910282.jpg"
+            "BG_COLOR":"",
+            "BG_IMG_URL":""
         }
     }
     );
