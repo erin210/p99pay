@@ -31,7 +31,7 @@
                     <div class="info">
                         <div id="payPrice" class="textbox cardPrice">
                             <img src="./assets/img/icon_money.svg" alt="">
-                            <span class="pay_price">100</span> <b>USD</b>
+                            <span id="payPriceTop" class="pay_price">100</span> <b id="payCUIDTop">USD</b>
                         </div>
                         <div id="PayInfo" class="textbox PayInfo">
                             
@@ -55,13 +55,11 @@
                                     <div id="BANK" class="tab_content showPAID"></div>
                                     <div id="WALLET" class="tab_content showPAID"></div>
                                     <div id="KIOSK" class="tab_content showPAID"></div>
-                        
                                 <div class="confirm">
                                     <button id="paymentOK" type="sbmit" class="btn" onclick="return check_submit();"></button>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -152,14 +150,22 @@
 
             //抓色系
             var root = document.documentElement;
-            var jsonCOLOR=json.Background.BG_COLOR;
-            var jsonBG=json.Background.BG_IMG_URL;
+            var jsonCOLOR_primary=json.theme.BG_COLOR_PRIMARY;
+            var jsonCOLOR_second=json.theme.BG_COLOR_SECOND;
+            var jsonBG_pc=json.theme.BG_IMG_URL_PC;
+            var jsonBG_m=json.theme.BG_IMG_URL_M;
 
-            root.style.setProperty('--primary',jsonCOLOR);
+            root.style.setProperty('--primary',jsonCOLOR_primary);
+            root.style.setProperty('--second',jsonCOLOR_second);
+            root.style.setProperty('--bg-image','url("'+jsonBG_pc+'")');
+            root.style.setProperty('--bg-image-mobile','url("'+jsonBG_m+'")');
 
-            if(!jsonBG==""){
-                $('body').css('background-image','url("'+jsonBG+'")');
+            if(!jsonBG_pc=="" || !jsonBG_m==""){
+                // $('body').css('background-image','url("'+jsonBG_pc+'")');
+                // $('body').css('background-image','url("'+jsonBG_m+'")');
                 $('body').addClass('addBG');
+            }else{
+                $('body').removeClass('addBG');
             }
             
             
@@ -296,7 +302,6 @@
             $('.list_box').on('click', function () {
                 var sel_radio = $(this).find('input[name="SPAID"]').prop('checked', true);
 
-
                 var selectedPaid = sel_radio.data('paid');//抓支付項目名稱
                 var selectedcuid = sel_radio.data('cuid');//抓幣別
 
@@ -325,8 +330,11 @@
                 if (targetAmount) {
                     targetAMOUNT = parseFloat(targetAmount.AMOUNT);
                 }
+
                 $('#currency').text(CUID);
+                $('#payCUIDTop').text(CUID);
                 $("#amount").text(targetAMOUNT);
+                $("#payPriceTop").text(targetAMOUNT);
             }
 
             //回傳資料整理
@@ -359,13 +367,10 @@
                 textHtml += ' class="submittxt" style="display:none;" />';
                 $(ele).append(textHtml);
             }
-
         }
 
         //表單送出
         function check_submit() { $('#form').submit(); console.log('表單送出!'); }
-
-        
 
         //TabBar 
         function adjustTabBar() {
@@ -628,12 +633,12 @@
                 "PAYMENT_SELECT": "\u8bf7\u9009\u62e9\u4ed8\u6b3e\u65b9\u5f0f\uff1a"
             }
         },
-        "Background": {
-            "BG_COLOR":"",
-            "BG_IMG_URL":""
+        "theme": {
+            "BG_COLOR_PRIMARY":"",
+            "BG_COLOR_SECOND":"",
+            "BG_IMG_URL_PC":"",
+            "BG_IMG_URL_M":""
         }
-    }
-    );
+    });
 </script>
-
 </html>
