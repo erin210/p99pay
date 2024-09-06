@@ -10,196 +10,195 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
     <link rel="stylesheet" href="./assets/css/select2.min.css" />
-    <link rel="stylesheet" href="./assets/css/pay.css">
+    <link rel="stylesheet" href="./assets/css/main.css?v=20240611">
     <script>
         function initFunction(jsonObj) {
             renderInfo(jsonObj);
         }
     </script>
 
-<style>
-    
-</style>
+    <style>
+
+    </style>
 </head>
 
-<body>
-    <div class="bg02">
-        <div class="receipt">
-            <div class="container">
-                <h1 class="RECEIPT_INFO">發票資訊</h1>
-                <div class="tabs">
-                    <div class="tab1" rel="tab1">
-                        <h3 class="RECEIPT_INFO_PERSONA">個人</h3>
-                    </div>
-                    <div class="tab2" rel="tab2">
-                        <h3 class="RECEIPT_INFO_DONATE">捐贈</h3>
-                    </div>
-                    <div class="tab3" rel="tab3">
-                        <h3 class="RECEIPT_INFO_COMPANY">公司</h3>
-                    </div>
+<body class="payBody">
+    <div class="receipt bg02">
+        <div class="container">
+            <h1 class="RECEIPT_INFO_SELECT">請選擇發票類型：</h1>
+            <div class="tabs">
+                <div class="tab1" rel="tab1">
+                    <span class="imgbox">
+                        <img src="./assets/img/t_persona.svg" alt="">
+                    </span>
+                    <h3 class="RECEIPT_INFO_PERSONA">
+                    個人</h3>
                 </div>
-                <div class="tab_container">
-                    <form role="form" id="form" action="" method="post" target="_self" class="form-payment"
-                        onsubmit="return check_submit();">
-                        <!-- tab1 -->
-                        <div id="tab1" class="tab_content">
-                            <div class="left">
-                                <h3 class="RECEIPT_INFO_SELECT">選擇發票類型：</h3>
-                            </div>
-                            <div class="right">
-                                <!-- start -->
-                                <div class="list mt-0">
-                                    <div class="d-flex align-items-center">
-                                        <input type="radio" name="SReceiptType" id="RT002" value="RT002" />
-                                        <label for="RT002">
-                                            <span class="RECEIPT_TYPE_EMAIL">電子發票</span>
-                                        </label>
-                                    </div>
-                                    <div class="textbox">
-                                        <input type="email" name="SReceiptEMail" id="SReceiptEMail"
-                                            class="RECEIPT_TYPE_EMAIL_HINT" placeholder="請輸入電子信箱"
-                                            onkeyup="valid('SReceiptEMail', this.value)" readonly>
-                                        <div id="email" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
-                                        <div id="email-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                </div>
-                                <!-- end -->
-                                <div class="list">
-                                    <div class="d-flex align-items-center">
-                                        <input type="radio" name="SReceiptType" id="RT003" value="RT003" />
-                                        <label for="RT003">
-                                            <span class="RECEIPT_TYPE_PHONECO">手機條碼</span>
-                                        </label>
-                                    </div>
-                                    <div class="textbox">
-                                        <input type="text" name="SReceiptPhoneCode" id="SReceiptPhoneCode"
-                                            class="RECEIPT_TYPE_PHONECODE_HINT" placeholder="須包含”/”為開頭，加上英數字，共八碼"
-                                            onkeyup="valid('SReceiptPhoneCode', this.value)" readonly>
-                                        <div id="phone" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
-                                        <div id="phone-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- tab2 -->
-                        <div id="tab2" class="tab_content">
-                            <div class="left">
-                                <h3>選擇發票類型：</h3>
-                            </div>
-                            <div class="right">
-                                <!-- start -->
-                                <div class="list mt-0">
-                                    <div class="d-flex align-items-center">
-                                        <input type="radio" name="SReceiptType" id="RT001" value="RT001" />
-                                        <label for="RT001">
-                                            <span class="RECEIPT_TYPE_DONATE">捐贈發票</span>
-                                        </label>
-                                    </div>
-                                    <div class="textbox selectBox">
-                                        <select name="SReceiptDonate" id="SReceiptDonate" class="ReceiptDonateList select2"
-                                            readonly disabled>
-                                            <option value="" selected disabled hidden>選擇捐贈單位</option>
-                                        </select>
-                                        <div id="require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                </div>
-                                <!-- end -->
-                                <div class="list">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <input type="radio" name="SReceiptType" id="RT006" value="RT006" />
-                                            <label for="RT006">
-                                                <div class="RECEIPT_TYPE_DONATECOD">指定受贈機關或團體</div>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <a href="https://www.einvoice.nat.gov.tw/APCONSUMER/BTC603W/"
-                                                class="RECEIPT_TYPE_DONATE_SEARCH" target="_blank">捐贈碼查詢</a>
-                                        </div>
-                                    </div>
-                                    <div class="textbox">
-                                        <input type="text" name="SReceiptDonateCode" id="SReceiptDonateCode"
-                                            class="RECEIPT_TYPE_DONATECODE_HINT" placeholder="請輸入捐贈碼"
-                                            onkeyup="valid('SReceiptDonateCode', this.value)" readonly>
-                                        <div id="donate" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
-                                        <div id="donate-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- tab3 -->
-                        <div id="tab3" class="tab_content">
-                            <div class="left">
-                                <h3>選擇發票類型：</h3>
-                            </div>
-                            <div class="right">
-                                <!-- start -->
-                                <div class="list mt-0">
-                                    <div class="d-flex align-items-center">
-                                        <input type="radio" name="SReceiptType" id="RT005" value="RT005" />
-                                        <label for="RT005">
-                                            <div class="RECEIPT_TYPE_TRIPLET">三聯式發票</div>
-                                        </label>
-                                    </div>
-                                    <div class="textbox mt-4">
-                                        <label for="SReceiptTitle">
-                                            <div class="RECEIPT_TYPE_TRIPLET_TITLE">
-                                                公司抬頭或姓名
-                                            </div>
-                                        </label>
-                                        <input type="text" name="SReceiptTitle" id="SReceiptTitle"
-                                            class="RECEIPT_TYPE_TRIPLET_TITLE_HINT" placeholder="請輸入公司抬頭/姓名"
-                                            onkeyup="valid('SReceiptTitle', this.value)" readonly>
-                                        <div id="title-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                    <div class="textbox mt-4">
-                                        <label for="SReceiptUBN">
-                                            <div class="RECEIPT_TYPE_TRIPLET_UBN">
-                                                統一編號
-                                            </div>
-                                        </label>
-                                        <input type="text" name="SReceiptUBN" id="SReceiptUBN"
-                                            class="RECEIPT_TYPE_TRIPLET_UBN_HINT" placeholder="請輸入統一編號，送出後無法修改"
-                                            onkeyup="valid('SReceiptUBN', this.value)" readonly>
-                                        <div id="ubn" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
-                                        <div id="ubn-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                    <div class="textbox mt-4">
-                                        <label for="RT005_SReceiptEMail">
-                                            <div class="RECEIPT_TYPE_TRIPLET_EMAIL">
-                                                電子發票
-                                            </div>
-                                        </label>
-                                        <input type="email" name="RT005_SReceiptEMail" id="RT005_SReceiptEMail"
-                                            class="RECEIPT_TYPE_TRIPLET_EMAIL_HINT" placeholder="請輸入電子信箱"
-                                            onkeyup="valid('RT005_SReceiptEMail', this.value)" readonly>
-                                        <div id="email2" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
-                                        <div id="email2-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
-                                    </div>
-                                </div>
-                                <!-- end -->
-                            </div>
-                        </div>
-                        <div class="remember mt-5">
-                            <input type="checkbox" name="SReceiptRemember" id="SReceiptRemember">
-                            <label for="SReceiptRemember">
-                                <span class="RECEIPT_REMEMBER">記住本次發票相關紀錄，方便日後快速結帳</span>
-                            </label>
-                        </div>
-                        <div class="confirm mt-3">
-                            <button type="button" id="submitBtn" class="button" onclick="return check_submit();"
-                                disabled>
-                                <span class="RECEIPT_CONFIRM">確認送出</span>
-                            </button>
-                        </div>
-                    </form>
+                <div class="tab2" rel="tab2">
+                    
+                    <span class="imgbox">
+                        <img src="./assets/img/t_donate.svg" alt="">
+                    </span>
+                    <h3 class="RECEIPT_INFO_DONATE">捐贈</h3>
                 </div>
+                <div class="tab3" rel="tab3">
+                    <span class="imgbox">
+                        <img src="./assets/img/t_company.svg" alt="">
+                    </span>
+                    <h3 class="RECEIPT_INFO_COMPANY">公司</h3>
+                </div>
+            </div>
+            <div class="tab_container">
+                <form role="form" id="form" action="" method="post" target="_self" class="form-payment"
+                    onsubmit="return check_submit();">
+                    <!-- tab1 -->
+                    <div id="tab1" class="tab_content">
+                        <div class="right">
+                            <!-- start -->
+                            <div class="list mt-0">
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="SReceiptType" id="RT002" value="RT002" />
+                                    <label for="RT002">
+                                        <span class="RECEIPT_TYPE_EMAIL">電子發票</span>
+                                    </label>
+                                </div>
+                                <div class="textbox">
+                                    <input type="email" name="SReceiptEMail" id="SReceiptEMail"
+                                        class="RECEIPT_TYPE_EMAIL_HINT" placeholder="請輸入電子信箱"
+                                        onkeyup="valid('SReceiptEMail', this.value)" readonly>
+                                    <div id="email" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
+                                    <div id="email-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                            </div>
+                            <!-- end -->
+                            <div class="list">
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="SReceiptType" id="RT003" value="RT003" />
+                                    <label for="RT003">
+                                        <span class="RECEIPT_TYPE_PHONECO">手機條碼</span>
+                                    </label>
+                                </div>
+                                <div class="textbox">
+                                    <input type="text" name="SReceiptPhoneCode" id="SReceiptPhoneCode"
+                                        class="RECEIPT_TYPE_PHONECODE_HINT" placeholder="須包含”/”為開頭，加上英數字，共八碼"
+                                        onkeyup="valid('SReceiptPhoneCode', this.value)" readonly>
+                                    <div id="phone" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
+                                    <div id="phone-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- tab2 -->
+                    <div id="tab2" class="tab_content">
+                        <div class="right">
+                            <!-- start -->
+                            <div class="list mt-0">
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="SReceiptType" id="RT001" value="RT001" />
+                                    <label for="RT001">
+                                        <span class="RECEIPT_TYPE_DONATE">捐贈發票</span>
+                                    </label>
+                                </div>
+                                <div class="textbox selectBox">
+                                    <select name="SReceiptDonate" id="SReceiptDonate" class="ReceiptDonateList select2"
+                                        readonly disabled>
+                                        <option value="" selected disabled hidden>選擇捐贈單位</option>
+                                    </select>
+                                    <div id="require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                            </div>
+                            <!-- end -->
+                            <div class="list">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <input type="radio" name="SReceiptType" id="RT006" value="RT006" />
+                                        <label for="RT006">
+                                            <div class="RECEIPT_TYPE_DONATECOD">指定受贈機關或團體</div>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <a href="https://www.einvoice.nat.gov.tw/portal/btc/btc603w/search"
+                                            class="RECEIPT_TYPE_DONATE_SEARCH" target="_blank">捐贈碼查詢</a>
+                                    </div>
+                                </div>
+                                <div class="textbox">
+                                    <input type="text" name="SReceiptDonateCode" id="SReceiptDonateCode"
+                                        class="RECEIPT_TYPE_DONATECODE_HINT" placeholder="請輸入捐贈碼"
+                                        onkeyup="valid('SReceiptDonateCode', this.value)" readonly>
+                                    <div id="donate" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
+                                    <div id="donate-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- tab3 -->
+                    <div id="tab3" class="tab_content">
+                        <div class="right">
+                            <!-- start -->
+                            <div class="list mt-0">
+                                <div class="d-flex align-items-center">
+                                    <input type="radio" name="SReceiptType" id="RT005" value="RT005" />
+                                    <label for="RT005">
+                                        <div class="RECEIPT_TYPE_TRIPLET">三聯式發票</div>
+                                    </label>
+                                </div>
+                                <div class="textbox mt-4">
+                                    <label for="SReceiptTitle">
+                                        <div class="RECEIPT_TYPE_TRIPLET_TITLE">
+                                            公司抬頭或姓名
+                                        </div>
+                                    </label>
+                                    <input type="text" name="SReceiptTitle" id="SReceiptTitle"
+                                        class="RECEIPT_TYPE_TRIPLET_TITLE_HINT" placeholder="請輸入公司抬頭/姓名"
+                                        onkeyup="valid('SReceiptTitle', this.value)" readonly>
+                                    <div id="title-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                                <div class="textbox mt-4">
+                                    <label for="SReceiptUBN">
+                                        <div class="RECEIPT_TYPE_TRIPLET_UBN">
+                                            統一編號
+                                        </div>
+                                    </label>
+                                    <input type="text" name="SReceiptUBN" id="SReceiptUBN"
+                                        class="RECEIPT_TYPE_TRIPLET_UBN_HINT" placeholder="請輸入統一編號，送出後無法修改"
+                                        onkeyup="valid('SReceiptUBN', this.value)" readonly>
+                                    <div id="ubn" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
+                                    <div id="ubn-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                                <div class="textbox mt-4">
+                                    <label for="RT005_SReceiptEMail">
+                                        <div class="RECEIPT_TYPE_TRIPLET_EMAIL">
+                                            電子發票
+                                        </div>
+                                    </label>
+                                    <input type="email" name="RT005_SReceiptEMail" id="RT005_SReceiptEMail"
+                                        class="RECEIPT_TYPE_TRIPLET_EMAIL_HINT" placeholder="請輸入電子信箱"
+                                        onkeyup="valid('RT005_SReceiptEMail', this.value)" readonly>
+                                    <div id="email2" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
+                                    <div id="email2-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
+                                </div>
+                            </div>
+                            <!-- end -->
+                        </div>
+                    </div>
+                    <div class="remember custom-checkbox mt-5">
+                        <input type="checkbox" name="SReceiptRemember" id="SReceiptRemember">
+                        <label for="SReceiptRemember">
+                            <span class="RECEIPT_REMEMBER">記住本次發票相關紀錄，方便日後快速結帳</span>
+                        </label>
+                    </div>
+                    <div class="confirm mt-3">
+                        <button type="button" id="submitBtn" class="button" onclick="return check_submit();" disabled>
+                            <span class="RECEIPT_CONFIRM">確認送出</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <script src="./assets/js/select2.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.select2').select2({
                 width: 'resolve',
                 dropdownParent: $('.selectBox')
@@ -220,7 +219,7 @@
         let selectedValue = ''
         let city = '台北市'
         let data = {}
-        
+
         const translationSelectors = [
             '.RECEIPT_CONFIRM',
             '.RECEIPT_ERROR_MESSAGE_FORMAT',
@@ -361,6 +360,10 @@
                 $(".tab_content").hide();
                 var activeTab = $(this).attr("rel"); $("#" + activeTab).fadeIn();
                 $("div.tabs div").removeClass("active"); $(this).addClass("active");
+                $("#" + activeTab + " .list:first-child").find('input[type=radio]').prop('checked', true);
+                $("#" + activeTab + " .list:first-child").find('select').removeAttr('disabled');
+                $("#" + activeTab + " .list:first-child").find('input').removeAttr('readonly');
+
 
             });
         });
@@ -423,42 +426,42 @@
         }
 
         function renderInfo(json) {
-            
+
             let langDefault = json.LanguageDefault;//語言
             let userLang = '';//對應用戶語言
-            let lang='';
+            let lang = '';
 
-            var langList=json.LanguageList;
-            
+            var langList = json.LanguageList;
+
             // 抓cookie的語言
             userLang = getCookie('userLang');
 
             if (userLang) {
-                langDefault=langSystem(userLang,json);
+                langDefault = langSystem(userLang, json);
                 lang = json.StringID[langDefault];//對應預設語言
             } else {
                 userLang = navigator.language || navigator.userLanguage;
-                
-                langDefault=langSystem(userLang,json);
+
+                langDefault = langSystem(userLang, json);
                 lang = json.StringID[langDefault];//對應預設語言
-                
+
                 setCookie(langDefault);
             }
 
             //判斷用戶語系
-            function langSystem(ss,json){
+            function langSystem(ss, json) {
                 let langDefault = 'en_US'; //預設英文(無支援語系)
-                let ssLang=ss.replace('-','_');
+                let ssLang = ss.replace('-', '_');
                 let languageKeys = Object.keys(json.LanguageList); //支援的語言
 
                 if (languageKeys.some(key => key.startsWith(ssLang))) {
                     langDefault = languageKeys.find(key => key.startsWith(ssLang));
-                } 
+                }
                 return langDefault;
             }
 
             //set cookie
-            function setCookie(name){
+            function setCookie(name) {
                 document.cookie = "userLang=" + userLang + "; path=/; max-age=" + (7 * 24 * 60 * 60);
             }
 
@@ -488,11 +491,11 @@
             });
 
             const asArray = Object.entries(json.LanguageList);
-            
+
             Language = langDefault;//抓預設語言
-            
+
             translate(json)
-            
+
             data = json
 
             // init
@@ -700,6 +703,8 @@
 
                 // send submit
                 document.getElementById('form').submit();
+                // console.log('form');
+
 
             } else {
                 alert(data.StringID[Language]['RECEIPT_ERROR_MESSAGE_HAVEERROR']);
@@ -714,100 +719,136 @@
 <body>
     <script>
         initFunction({
-  "Tpye": "GetReceiptInfo",
-  "data": "eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDI0MDYxMzE1MjkyNiIsIkNVSUQiOiJUV0QiLCJBTU9VTlQiOiIyMDAwIiwiUkVUVVJOX1VSTCI6Imh0dHA6XC9cLzE0LjIyNS4zLjEzMVwvdGVzdFwvcmV0dXJuX3VybC5waHAiLCJPUkRFUl9UWVBFIjoiRSIsIlBST0RVQ1RfTkFNRSI6IjIwIiwiUFJPRFVDVF9JRCI6IjE3MjUiLCJVU0VSX0FDQ1RJRCI6IjYwMDAyMEFCQ0RFRkdISUoiLCJFUlFDIjoicG82VXR5eW5sc25sVGRLRk9BZ0FLYlhod0EwPSJ9",
-  "COID": "C000010000001CP20240613152926000010000001CP20240613152926",
-  "SPAID": "COPKWP01",
-  "ReceiptRemember_SHOW": "1",
-  "LastReceiptList": {
-    "ReceiptType": "RT002",
-    "ReceiptDonate": "",
-    "ReceiptDonateCode": "",
-    "ReceiptEMail": "mail@gmail.com",
-    "ReceiptPhoneCode": "",
-    "ReceiptTitle": "",
-    "ReceiptUBN": "",
-    "ReceiptRemember": "1"
-  },
-  "ReceiptTypeList": {
-    "RT001": "捐贈發票",
-    "RT002": "電子發票",
-    "RT003": "載具條碼",
-    "RT004": "自然人憑證條碼",
-    "RT005": "公司行號電子發票"
-  },
-  "ReceiptDonateList": {
-    "RD001": "社團法人台灣一起夢想公益協會"
-  },
-  "LanguageDefault": "en_US",
-  "LanguageList": {
-    "en_US": "English", 
-    "zh_TW": "中文"
-  },
-  "StringID": {
-    "en_US": {
-      "RECEIPT_CONFIRM": "確認送出(en)",
-      "RECEIPT_ERROR_MESSAGE_FORMAT": "* 格式不正確(en)",
-      "RECEIPT_ERROR_MESSAGE_HAVEERROR": "輸入有誤，請確認填寫欄位(en)",
-      "RECEIPT_ERROR_MESSAGE_NEED": " *此為必填(en)",
-      "RECEIPT_INFO": "發票資訊(en)",
-      "RECEIPT_INFO_COMPANY": "公司(en)",
-      "RECEIPT_INFO_DONATE": "捐贈(en)",
-      "RECEIPT_INFO_PERSONA": "個人(en)",
-      "RECEIPT_INFO_SELECT": "選擇發票類型：(en)",
-      "RECEIPT_REMEMBER": "記住本次發票相關紀錄，方便日後快速結帳(en)",
-      "RECEIPT_TYPE_CDCCODE": "自然人憑證(en)",
-      "RECEIPT_TYPE_CDCCODE_HINT": "AB12345678901234(en)",
-      "RECEIPT_TYPE_DONATE": "捐贈發票(en)",
-      "RECEIPT_TYPE_DONATE_HINT": "選擇捐贈單位(en)",
-      "RECEIPT_TYPE_DONATE_SEARCH": "捐贈碼查詢(en)",
-      "RECEIPT_TYPE_DONATECOD": "指定受贈機關或團體(en)",
-      "RECEIPT_TYPE_DONATECODE_HINT": "請輸入捐贈碼(en)",
-      "RECEIPT_TYPE_EMAIL": "電子發票(en)",
-      "RECEIPT_TYPE_EMAIL_HINT": "請輸入電子郵件信箱(en)",
-      "RECEIPT_TYPE_PHONECO": "載具條碼(en)",
-      "RECEIPT_TYPE_PHONECODE_HINT": "須包含”/”為開頭，加上英數字或+-號，共八碼(en)",
-      "RECEIPT_TYPE_TRIPLET": "公司行號電子發票(en)",
-      "RECEIPT_TYPE_TRIPLET_EMAIL": "EMail信箱(en)",
-      "RECEIPT_TYPE_TRIPLET_EMAIL_HINT": "請輸入電子郵件信箱(en)",
-      "RECEIPT_TYPE_TRIPLET_TITLE": "公司抬頭或姓名(en)",
-      "RECEIPT_TYPE_TRIPLET_TITLE_HINT": "請輸入公司抬頭/姓名(en)",
-      "RECEIPT_TYPE_TRIPLET_UBN": "統一編號(en)",
-      "RECEIPT_TYPE_TRIPLET_UBN_HINT": "請輸入統一編號，送出後無法修改(en)"
-    },
-    "zh_TW": {
-      "RECEIPT_CONFIRM": "確認送出",
-      "RECEIPT_ERROR_MESSAGE_FORMAT": "* 格式不正確",
-      "RECEIPT_ERROR_MESSAGE_HAVEERROR": "輸入有誤，請確認填寫欄位",
-      "RECEIPT_ERROR_MESSAGE_NEED": " *此為必填",
-      "RECEIPT_INFO": "發票資訊",
-      "RECEIPT_INFO_COMPANY": "公司",
-      "RECEIPT_INFO_DONATE": "捐贈",
-      "RECEIPT_INFO_PERSONA": "個人",
-      "RECEIPT_INFO_SELECT": "選擇發票類型：",
-      "RECEIPT_REMEMBER": "記住本次發票相關紀錄，方便日後快速結帳",
-      "RECEIPT_TYPE_CDCCODE": "自然人憑證",
-      "RECEIPT_TYPE_CDCCODE_HINT": "AB12345678901234",
-      "RECEIPT_TYPE_DONATE": "捐贈發票",
-      "RECEIPT_TYPE_DONATE_HINT": "選擇捐贈單位",
-      "RECEIPT_TYPE_DONATE_SEARCH": "捐贈碼查詢",
-      "RECEIPT_TYPE_DONATECOD": "指定受贈機關或團體",
-      "RECEIPT_TYPE_DONATECODE_HINT": "請輸入捐贈碼",
-      "RECEIPT_TYPE_EMAIL": "電子發票",
-      "RECEIPT_TYPE_EMAIL_HINT": "請輸入電子郵件信箱",
-      "RECEIPT_TYPE_PHONECO": "載具條碼",
-      "RECEIPT_TYPE_PHONECODE_HINT": "須包含”/”為開頭，加上英數字或+-號，共八碼",
-      "RECEIPT_TYPE_TRIPLET": "公司行號電子發票",
-      "RECEIPT_TYPE_TRIPLET_EMAIL": "EMail信箱",
-      "RECEIPT_TYPE_TRIPLET_EMAIL_HINT": "請輸入電子郵件信箱",
-      "RECEIPT_TYPE_TRIPLET_TITLE": "公司抬頭或姓名",
-      "RECEIPT_TYPE_TRIPLET_TITLE_HINT": "請輸入公司抬頭/姓名",
-      "RECEIPT_TYPE_TRIPLET_UBN": "統一編號",
-      "RECEIPT_TYPE_TRIPLET_UBN_HINT": "請輸入統一編號，送出後無法修改"
-    }
-  },
-  "Background": ""
-});
+            "Tpye": "GetReceiptInfo",
+            "data": "eyJNU0dfVFlQRSI6IjAxMDAiLCJQQ09ERSI6IjMwMDAwMCIsIkNJRCI6IkMwMDAwMTAwMDAwMDEiLCJDT0lEIjoiQ1AyMDI0MDYxMzE1MjkyNiIsIkNVSUQiOiJUV0QiLCJBTU9VTlQiOiIyMDAwIiwiUkVUVVJOX1VSTCI6Imh0dHA6XC9cLzE0LjIyNS4zLjEzMVwvdGVzdFwvcmV0dXJuX3VybC5waHAiLCJPUkRFUl9UWVBFIjoiRSIsIlBST0RVQ1RfTkFNRSI6IjIwIiwiUFJPRFVDVF9JRCI6IjE3MjUiLCJVU0VSX0FDQ1RJRCI6IjYwMDAyMEFCQ0RFRkdISUoiLCJFUlFDIjoicG82VXR5eW5sc25sVGRLRk9BZ0FLYlhod0EwPSJ9",
+            "COID": "C000010000001CP20240613152926000010000001CP20240613152926",
+            "SPAID": "COPKWP01",
+            "ReceiptRemember_SHOW": "1",
+            "LastReceiptList": {
+                "ReceiptType": "RT002",
+                "ReceiptDonate": "",
+                "ReceiptDonateCode": "",
+                "ReceiptEMail": "mail@gmail.com",
+                "ReceiptPhoneCode": "",
+                "ReceiptTitle": "",
+                "ReceiptUBN": "",
+                "ReceiptRemember": "1"
+            },
+            "ReceiptTypeList": {
+                "RT001": "捐贈發票",
+                "RT002": "電子發票",
+                "RT003": "載具條碼",
+                "RT004": "自然人憑證條碼",
+                "RT005": "公司行號電子發票"
+            },
+            "ReceiptDonateList": {
+                "RD001": "社團法人台灣一起夢想公益協會"
+            },
+            "LanguageDefault": "en_US",
+            "LanguageList": {
+                "en_US": "English",
+                "zh_TW": "繁中",
+                "zh_CN": "简中",
+            },
+            "StringID": {
+                "en_US": {
+                    "RECEIPT_CONFIRM": "Confirm submission",
+                    "RECEIPT_ERROR_MESSAGE_FORMAT": "* Incorrect format",
+                    "RECEIPT_ERROR_MESSAGE_HAVEERROR": "There is an error in your input, please check the fields",
+                    "RECEIPT_ERROR_MESSAGE_NEED": "* This field is required",
+                    "RECEIPT_INFO": "Invoice Information",
+                    "RECEIPT_INFO_COMPANY": "Company",
+                    "RECEIPT_INFO_DONATE": "Donate",
+                    "RECEIPT_INFO_PERSONA": "Personal",
+                    "RECEIPT_INFO_SELECT": "Select invoice type:",
+                    "RECEIPT_REMEMBER": "Remember this invoice information for faster checkout next time",
+                    "RECEIPT_TYPE_CDCCODE": "Citizen Digital Certificate",
+                    "RECEIPT_TYPE_CDCCODE_HINT": "AB12345678901234",
+                    "RECEIPT_TYPE_DONATE": "Donate Invoice",
+                    "RECEIPT_TYPE_DONATE_HINT": "Select a donation unit",
+                    "RECEIPT_TYPE_DONATE_SEARCH": "Donation code search",
+                    "RECEIPT_TYPE_DONATECOD": "Designated recipient organization or group",
+                    "RECEIPT_TYPE_DONATECODE_HINT": "Please enter the donation code",
+                    "RECEIPT_TYPE_EMAIL": "Electronic Invoice",
+                    "RECEIPT_TYPE_EMAIL_HINT": "Please enter your email address",
+                    "RECEIPT_TYPE_PHONECO": "Carrier Barcode",
+                    "RECEIPT_TYPE_PHONECODE_HINT": "Must start with '/' followed by alphanumeric characters or + - symbols, total of 8 digits",
+                    "RECEIPT_TYPE_TRIPLET": "Corporate Electronic Invoice",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL": "Email address",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL_HINT": "Please enter your email address",
+                    "RECEIPT_TYPE_TRIPLET_TITLE": "Company name or personal name",
+                    "RECEIPT_TYPE_TRIPLET_TITLE_HINT": "Please enter the company name/personal name",
+                    "RECEIPT_TYPE_TRIPLET_UBN": "Unified Business Number",
+                    "RECEIPT_TYPE_TRIPLET_UBN_HINT": "Please enter the UBN, it cannot be changed after submission"
+                },
+                "zh_TW": {
+                    "RECEIPT_CONFIRM": "確認送出",
+                    "RECEIPT_ERROR_MESSAGE_FORMAT": "* 格式不正確",
+                    "RECEIPT_ERROR_MESSAGE_HAVEERROR": "輸入有誤，請確認填寫欄位",
+                    "RECEIPT_ERROR_MESSAGE_NEED": " *此為必填",
+                    "RECEIPT_INFO": "發票資訊",
+                    "RECEIPT_INFO_COMPANY": "公司",
+                    "RECEIPT_INFO_DONATE": "捐贈",
+                    "RECEIPT_INFO_PERSONA": "個人",
+                    "RECEIPT_INFO_SELECT": "選擇發票類型：",
+                    "RECEIPT_REMEMBER": "記住本次發票相關紀錄，方便日後快速結帳",
+                    "RECEIPT_TYPE_CDCCODE": "自然人憑證",
+                    "RECEIPT_TYPE_CDCCODE_HINT": "AB12345678901234",
+                    "RECEIPT_TYPE_DONATE": "捐贈發票",
+                    "RECEIPT_TYPE_DONATE_HINT": "選擇捐贈單位",
+                    "RECEIPT_TYPE_DONATE_SEARCH": "捐贈碼查詢",
+                    "RECEIPT_TYPE_DONATECOD": "指定受贈機關或團體",
+                    "RECEIPT_TYPE_DONATECODE_HINT": "請輸入捐贈碼",
+                    "RECEIPT_TYPE_EMAIL": "電子發票",
+                    "RECEIPT_TYPE_EMAIL_HINT": "請輸入電子郵件信箱",
+                    "RECEIPT_TYPE_PHONECO": "載具條碼",
+                    "RECEIPT_TYPE_PHONECODE_HINT": "須包含”/”為開頭，加上英數字或+-號，共八碼",
+                    "RECEIPT_TYPE_TRIPLET": "公司行號電子發票",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL": "EMail信箱",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL_HINT": "請輸入電子郵件信箱",
+                    "RECEIPT_TYPE_TRIPLET_TITLE": "公司抬頭或姓名",
+                    "RECEIPT_TYPE_TRIPLET_TITLE_HINT": "請輸入公司抬頭/姓名",
+                    "RECEIPT_TYPE_TRIPLET_UBN": "統一編號",
+                    "RECEIPT_TYPE_TRIPLET_UBN_HINT": "請輸入統一編號，送出後無法修改"
+                },
+                "zh_CN": {
+                    "RECEIPT_CONFIRM": "确认提交",
+                    "RECEIPT_ERROR_MESSAGE_FORMAT": "* 格式不正确",
+                    "RECEIPT_ERROR_MESSAGE_HAVEERROR": "输入有误，请检查填写字段",
+                    "RECEIPT_ERROR_MESSAGE_NEED": "* 此项为必填",
+                    "RECEIPT_INFO": "发票信息",
+                    "RECEIPT_INFO_COMPANY": "公司",
+                    "RECEIPT_INFO_DONATE": "捐赠",
+                    "RECEIPT_INFO_PERSONA": "个人",
+                    "RECEIPT_INFO_SELECT": "选择发票类型：",
+                    "RECEIPT_REMEMBER": "记住本次发票相关记录，方便以后快速结账",
+                    "RECEIPT_TYPE_CDCCODE": "自然人凭证",
+                    "RECEIPT_TYPE_CDCCODE_HINT": "AB12345678901234",
+                    "RECEIPT_TYPE_DONATE": "捐赠发票",
+                    "RECEIPT_TYPE_DONATE_HINT": "选择捐赠单位",
+                    "RECEIPT_TYPE_DONATE_SEARCH": "捐赠码查询",
+                    "RECEIPT_TYPE_DONATECOD": "指定受赠机构或团体",
+                    "RECEIPT_TYPE_DONATECODE_HINT": "请输入捐赠码",
+                    "RECEIPT_TYPE_EMAIL": "电子发票",
+                    "RECEIPT_TYPE_EMAIL_HINT": "请输入电子邮箱",
+                    "RECEIPT_TYPE_PHONECO": "载具条码",
+                    "RECEIPT_TYPE_PHONECODE_HINT": "必须以“/”开头，后面跟英文字母、数字或+、-符号，共8位数",
+                    "RECEIPT_TYPE_TRIPLET": "公司电子发票",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL": "邮箱地址",
+                    "RECEIPT_TYPE_TRIPLET_EMAIL_HINT": "请输入邮箱地址",
+                    "RECEIPT_TYPE_TRIPLET_TITLE": "公司抬头或姓名",
+                    "RECEIPT_TYPE_TRIPLET_TITLE_HINT": "请输入公司抬头/姓名",
+                    "RECEIPT_TYPE_TRIPLET_UBN": "统一编号",
+                    "RECEIPT_TYPE_TRIPLET_UBN_HINT": "请输入统一编号，提交后无法修改"
+                }
+            },
+            "theme": {
+                "BG_COLOR_PRIMARY": "",
+                "BG_COLOR_SECOND": "",
+                "BG_IMG_URL_PC": "",
+                "BG_IMG_URL_M": ""
+            }
+        });
     </script>
 </body>
 

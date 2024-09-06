@@ -9,7 +9,7 @@
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="./assets/css/pay.css?v=20240611">
+    <link rel="stylesheet" href="./assets/css/main.css?v=20240611">
     <script>
         function initFunction(jsonObj) {
             renderInfo(jsonObj);
@@ -168,8 +168,6 @@
                 $('body').removeClass('addBG');
             }
             
-            
-
             $('#infoTIT').text(lang.PAYMENT_INFO);
             $('#selectTIT').text(lang.PAYMENT_SELECT);
             $('#paymentOK').html(lang.PAYMENT_CONFIRM + '<img src="./assets/img/arrow.svg" alt="">');
@@ -330,7 +328,6 @@
                 if (targetAmount) {
                     targetAMOUNT = parseFloat(targetAmount.AMOUNT);
                 }
-
                 $('#currency').text(CUID);
                 $('#payCUIDTop').text(CUID);
                 $("#amount").text(targetAMOUNT);
