@@ -9,7 +9,7 @@ const environment = {
     },
     github: {
       pageBaseUrl: 'https://murfeefeng.github.io/paypage0829/',
-      apiBaseUrl: 'https://murfeefeng.github.io/paypage0829/api',
+      apiBaseUrl: 'https://api.p99pay.com',
     },
     localhost: {
       pageBaseUrl: 'http://127.0.0.1:5500/',
