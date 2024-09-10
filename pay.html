@@ -4,7 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P99Pay</title>
+    <title>P99Pay-pagepage</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const base = document.createElement('base');
+            // console.log(base);
+            base.href = window.pageBaseUrl;
+            const titleElement = document.querySelector('title');
+            titleElement.insertAdjacentElement('afterend', base);
+        });
+    </script>
     <script src="./config.js"></script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
@@ -70,6 +79,10 @@
         console.log(window.location.hostname);
         console.log('Page Base URL:', pageBaseUrl);
         console.log('API Base URL:', apiUrl);
+        
+        $(function () {
+            $('base').attr('href', apiUrl);
+        });
  
         function renderInfo(json) {
             var PAIDLIST = json.PAIDList;//支付項目
