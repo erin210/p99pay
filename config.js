@@ -13,11 +13,11 @@ const environment = {
     },
     localhost: {
       pageBaseUrl: 'http://127.0.0.1:5500/',
-      apiBaseUrl: 'http://127.0.0.1:5000/api',
+      apiBaseUrl: 'https://api.p99pay.com',
     },
   };
   
-  // 根據當前的環境來選擇配置
+  //配置
   const currentEnv = (function() {
     const hostname = window.location.hostname;
     if (hostname === 'api.p99pay.com') {

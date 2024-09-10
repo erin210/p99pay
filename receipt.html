@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P99Pay</title>
     <script src="./config.js"></script>
+    <script>
+        // 確保 config.js 被加載後執行
+        document.addEventListener('DOMContentLoaded', () => {
+            // 創建 base 標籤
+            const base = document.createElement('base');
+            console.log(base);
+            
+            base.href = window.pageBaseUrl;
+            // 插入到 title 下面
+            const titleElement = document.querySelector('title');
+            titleElement.insertAdjacentElement('afterend', base);
+        });
+    </script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
@@ -204,6 +217,12 @@
         console.log(window.location.hostname);
         console.log('Page Base URL:', pageBaseUrl);
         console.log('API Base URL:', apiUrl);
+
+        $(function () {
+            $('base').attr('href', apiUrl);
+        });
+
+
         $(document).ready(function () {
             $('.select2').select2({
                 width: 'resolve',
