@@ -7,6 +7,10 @@ const environment = {
       pageBaseUrl: 'https://stage-api-page.p99pay.com',
       apiBaseUrl: 'https://stage-api.p99pay.com',
     },
+    github: {
+      pageBaseUrl: 'https://murfeefeng.github.io/paypage0829/',
+      apiBaseUrl: 'https://murfeefeng.github.io/paypage0829/api',
+    },
     localhost: {
       pageBaseUrl: 'http://127.0.0.1:5500/',
       apiBaseUrl: 'http://127.0.0.1:5000/api',
@@ -19,6 +23,8 @@ const environment = {
     if (hostname === 'api.p99pay.com') {
       return environment.production;
     } else if (hostname === 'stage-api.p99pay.com') {
+      return environment.stage;
+    }else if (hostname === 'murfeefeng.github.io/paypage0829') {
       return environment.stage;
     } else {
       return environment.localhost;
