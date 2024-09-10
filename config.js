@@ -23,9 +23,9 @@ const environment = {
     if (hostname === 'api.p99pay.com') {
       return environment.production;
     } else if (hostname === 'stage-api.p99pay.com') {
-      return environment.github;
-    }else if (hostname === 'murfeefeng.github.io') {
       return environment.stage;
+    }else if (hostname === 'murfeefeng.github.io') {
+      return environment.github;
     } else {
       return environment.localhost;
     }
