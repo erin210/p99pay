@@ -33,9 +33,3 @@ const environment = {
 
 window.pageBaseUrl = currentEnv.pageBaseUrl;
 window.apiUrl = currentEnv.apiBaseUrl;
-
-
-  // const pageBaseUrl = currentEnv.pageBaseUrl;
-  // const apiUrl = currentEnv.apiBaseUrl;
-  
-  // export { pageBaseUrl, apiUrl };
