@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P99Pay</title>
-    <!-- <base href="https://api-page.p99pay.com/"> -->
+    <script src="./config.js"></script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/bootstrap-grid.css">
@@ -35,7 +35,6 @@
                     個人</h3>
                 </div>
                 <div class="tab2" rel="tab2">
-                    
                     <span class="imgbox">
                         <img src="./assets/img/t_donate.svg" alt="">
                     </span>
@@ -136,13 +135,13 @@
                         <div class="right">
                             <!-- start -->
                             <div class="list mt-0">
-                                <div class="d-flex align-items-center">
+                                <div class="textbox_tit d-flex align-items-center">
                                     <input type="radio" name="SReceiptType" id="RT005" value="RT005" />
                                     <label for="RT005">
                                         <div class="RECEIPT_TYPE_TRIPLET">三聯式發票</div>
                                     </label>
                                 </div>
-                                <div class="textbox mt-4">
+                                <div class="textbox">
                                     <label for="SReceiptTitle">
                                         <div class="RECEIPT_TYPE_TRIPLET_TITLE">
                                             公司抬頭或姓名
@@ -153,7 +152,7 @@
                                         onkeyup="valid('SReceiptTitle', this.value)" readonly>
                                     <div id="title-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
                                 </div>
-                                <div class="textbox mt-4">
+                                <div class="textbox">
                                     <label for="SReceiptUBN">
                                         <div class="RECEIPT_TYPE_TRIPLET_UBN">
                                             統一編號
@@ -165,7 +164,7 @@
                                     <div id="ubn" class="RECEIPT_ERROR_MESSAGE_FORMAT error">* 格式不正確</div>
                                     <div id="ubn-require" class="RECEIPT_ERROR_MESSAGE_NEED error">* 此為必填</div>
                                 </div>
-                                <div class="textbox mt-4">
+                                <div class="textbox">
                                     <label for="RT005_SReceiptEMail">
                                         <div class="RECEIPT_TYPE_TRIPLET_EMAIL">
                                             電子發票
@@ -181,7 +180,8 @@
                             <!-- end -->
                         </div>
                     </div>
-                    <div class="remember custom-checkbox mt-5">
+                    <div>
+                    <div class="remember custom-checkbox">
                         <input type="checkbox" name="SReceiptRemember" id="SReceiptRemember">
                         <label for="SReceiptRemember">
                             <span class="RECEIPT_REMEMBER">記住本次發票相關紀錄，方便日後快速結帳</span>
@@ -192,20 +192,26 @@
                             <span class="RECEIPT_CONFIRM">確認送出</span>
                         </button>
                     </div>
+                </div>
                 </form>
             </div>
         </div>
     </div>
+   
     <script src="./assets/js/select2.min.js"></script>
     <script>
+        
+        console.log('Page Base URL:', pageBaseUrl);
+        console.log('API Base URL:', apiUrl);
+        // $(function () {
+        //     $('base').attr('href', 'https://api.p99pay.com');
+        // });
+
         $(document).ready(function () {
             $('.select2').select2({
                 width: 'resolve',
                 dropdownParent: $('.selectBox')
             });;
-        });
-        $(function () {
-            $('base').attr('href', 'https://api.p99pay.com');
         });
 
         let emailError = true

@@ -9,7 +9,7 @@ const environment = {
     },
     localhost: {
       pageBaseUrl: 'http://127.0.0.1:5500/',
-      apiBaseUrl: 'http://127.0.0.1:5500/',
+      apiBaseUrl: 'http://127.0.0.1:5000/api',
     },
   };
   
@@ -24,9 +24,12 @@ const environment = {
       return environment.localhost;
     }
   })();
+
+window.pageBaseUrl = currentEnv.pageBaseUrl;
+window.apiUrl = currentEnv.apiBaseUrl;
+
+
+  // const pageBaseUrl = currentEnv.pageBaseUrl;
+  // const apiUrl = currentEnv.apiBaseUrl;
   
-  // 使用方式
-  const pageBaseUrl = currentEnv.pageBaseUrl;
-  const apiUrl = currentEnv.apiBaseUrl;
-  
-  export { pageBaseUrl, apiUrl };
+  // export { pageBaseUrl, apiUrl };

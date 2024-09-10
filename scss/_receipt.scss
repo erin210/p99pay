@@ -10,9 +10,9 @@
     height: 100%;
 
     h1 {
-      font-size: 20px;
+      font-size: 24px;
       color: var(--primary);
-      font-weight: 400;
+      font-weight: 500;
       // text-align: center;
     }
 
@@ -79,15 +79,19 @@
     }
 
     .form-payment {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 51vh;
       border: 1px solid $light_grey3;
       border-radius: 10px;
       padding: 35px;
 
     }
 
-    .tab_container .tab_content {
+    .tab_container {
       // display: flex;
-      height: 100%;
+      min-height: 100%;
 
 
       .right {
@@ -100,12 +104,15 @@
           height: 20px;
           margin-right: 10px;
           margin-top: -1px;
+          &:checked+label{
+            color: var(--primary);
+          }
         }
 
         label {
-          font-size: 16px;
-          color: var(--primary);
-          font-weight: 400;
+          font-size: 18px;
+          color: $logo_grey;
+          font-weight: 200;
 
           .RECEIPT_ERROR_MESSAGE_NEED {
             color: red;
@@ -122,28 +129,42 @@
             font-weight: 400;
             text-align: right;
           }
-
+          .textbox_tit{
+            margin-bottom: 26px;
+            font-weight: 400;
+          }
           .textbox {
             display: block;
+            margin-bottom: 20px;
+            label{
+              font-size: 16px;
+              div{
+                padding-left: .5em;
+
+              }
+            }
 
             input,
             select {
-              font-size: 14px;
+              font-size: 16px;
               font-weight: 200;
               width: -webkit-fill-available;
               width: -moz-available;
               color: $logo_grey;
 
               /*firefox*/
-              padding: 14px;
+              padding: 1.2em;
               border: 1px solid $light_grey3;
               border-radius: 10px;
               margin-top: 14px;
               background-color: transparent;
               margin-right: 0;
+              &::placeholder{
+                color: $light_grey3;
+              }
             }
 
-            input[type=text][readonly]{
+            input[readonly]{
               color: $light_grey3 !important;
               -webkit-text-fill-color:$light_grey3 !important; /* 针对 WebKit 的文本填充颜色 */
               background-color: $light_grey4;
@@ -156,7 +177,7 @@
 
     .button {
       width: 100%;
-      padding: 1em;
+      padding: 1.2em;
       color: $white;
       background-color: var(--primary);
       border-radius: 50px;
@@ -238,29 +259,97 @@
       .tabs{
         margin: 3vh 0;
         &>div{
-          padding: 1.5vh 10px;
+          padding: 3.8vh 10px;
         }
-
       }
+      .form-payment {
+        min-height: 69vh;
+        border: 1px solid $light_grey3;
+        border-radius: 10px;
+        padding: 4vh 35px;
+  
+      }
+      .tab_container{
+        .right{
+          .list{
+            .textbox_tit{
+              margin-bottom: 3vh;
+            }
+            .textbox{
+              margin-bottom: 2vh;
+            }
+          }
+        }
+        
+      }
+      
     }
   }
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .receipt {
     width: 100%;
-    padding: 40px 15px;
+    padding: 22px 15px;
     box-sizing: border-box;
+
     .container {
-      h1 {
-        font-size: 18px;
+  h1 {
+    font-size: 20px;
+  }
+
+  .form-payment {
+    min-height: inherit;
+    padding: 30px 20px;
+
+    .tab_content {
+      .right {
+        width: 100%;
+
+        label {
+          font-size: 16px;
+        }
+
+        input {
+          margin-top: 2px;
+        }
+
+        .list {
+          .textbox {
+            label {
+              font-size: 14px;
+            }
+
+            input {
+              font-size: 14px;
+            }
+
+            .address {
+              display: block;
+
+              select {
+                width: 100%;
+              }
+
+              input {
+                width: -webkit-fill-available;
+              }
+            }
+          }
+        }
       }
+      
+    }
+    .remember{
+      margin-top: 2em;
+    }
+  }
 
       .tabs{
         &>div{
         color: $text_grey2;
-        padding: 1.5em 10px;
+        padding: 1.2em 10px;
         .imgbox{
           display: none;
         }
@@ -268,26 +357,9 @@
           font-size: 16px;
         }
       } 
-
-      .tab_container .tab_content {
+      .tab_container {
         display: block;
 
-
-        .right {
-          width: 100%;
-
-          .list .textbox .address {
-            display: block;
-
-            select {
-              width: 100%;
-            }
-
-            input {
-              width: -webkit-fill-available;
-            }
-          }
-        }
       }
     }
   }
@@ -305,24 +377,24 @@
 
 .select2-container {
   width: 100% !important;
-  font-size: 14px !important;
+  font-size: 16px;
 
   .select2-selection--single {
-    height: 50px;
+    height: 60px;
   }
 }
 
 .select2-container--default {
   .select2-selection--single {
-    background-color: $background-color_1;
+    background-color: $bg_grey;
 
     .select2-selection__rendered {
-      line-height: 50px;
-      color: $color_1;
+      line-height: 60px;
+      color: $logo_grey;
     }
 
     .select2-selection__arrow {
-      height: 50px;
+      height: 60px;
     }
   }
 
@@ -339,8 +411,13 @@
 
 .select2-container--default.select2-container--disabled {
   .select2-selection--single {
-    background-color: $background-color_2;
+    background-color: $light_grey4;
+    border-color: $light_grey4;
+    color: $light_grey3;
   }
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+  color: $light_grey3;
 }
 
 .select2-results__option {
@@ -353,8 +430,28 @@
   background-color: transparent;
 }
 .select2-container .select2-selection--single .select2-selection__rendered{
-  padding-left: 14px;
+  padding-left: 20px;
 }
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
   background-color: var(--primary);
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  right: 13px;
+}
+
+@media screen and (max-width: 768px){
+  .select2-container{
+    font-size: 14px;
+    .select2-selection--single {
+      height: 54px;
+    }
+   
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 50px;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__arrow{
+    height: 50px;
+  }
+  
 }
