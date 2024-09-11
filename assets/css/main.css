@@ -930,7 +930,7 @@ button:hover {
 }
 .receipt .container .tab_container .right label {
   font-size: 18px;
-  color: #727171;
+  color: #A5A5A5;
   font-weight: 200;
 }
 .receipt .container .tab_container .right label .RECEIPT_ERROR_MESSAGE_NEED {
@@ -1096,6 +1096,9 @@ button:hover {
   }
   .receipt .container .form-payment .remember {
     margin-top: 2em;
+  }
+  .receipt .container .form-payment .remember label {
+    font-size: 14px;
   }
   .receipt .container .tabs > div {
     color: #A5A5A5;
