@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P99Pay-pagepage</title>
+    <script src="config.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const base = document.createElement('base');
-            // console.log(base);
-            base.href = window.pageBaseUrl;
-            const titleElement = document.querySelector('title');
-            titleElement.insertAdjacentElement('afterend', base);
-        });
-    </script>
-    <script src="./config.js"></script>
+        (function() {
+          var base = document.createElement('base');
+          base.href = window.pageBaseUrl;
+          document.head.appendChild(base);
+        })();
+      </script>
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./assets/css/reset.css">
