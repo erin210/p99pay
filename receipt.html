@@ -490,6 +490,18 @@
                 return match ? match[2] : null;
             }
 
+            //抓色系
+            var root = document.documentElement;
+            var jsonCOLOR_primary=json.theme.BG_COLOR_PRIMARY;
+            var jsonCOLOR_second=json.theme.BG_COLOR_SECOND;
+            var jsonBG_pc=json.theme.BG_IMG_URL_PC;
+            var jsonBG_m=json.theme.BG_IMG_URL_M;
+
+            root.style.setProperty('--primary',jsonCOLOR_primary);
+            root.style.setProperty('--second',jsonCOLOR_second);
+            root.style.setProperty('--bg-image','url("'+jsonBG_pc+'")');
+            root.style.setProperty('--bg-image-mobile','url("'+jsonBG_m+'")');
+
             Object.keys(json).forEach(function (k) {
                 var eleName = '#' + k;
                 if ($(eleName).length <= 0) {
@@ -860,12 +872,12 @@
                     "RECEIPT_TYPE_TRIPLET_UBN_HINT": "请输入统一编号，提交后无法修改"
                 }
             },
-            "theme": {
-                "BG_COLOR_PRIMARY": "",
-                "BG_COLOR_SECOND": "",
-                "BG_IMG_URL_PC": "",
-                "BG_IMG_URL_M": ""
-            }
+        "theme": {
+            "BG_COLOR_PRIMARY":"",
+            "BG_COLOR_SECOND":"",
+            "BG_IMG_URL_PC":"",
+            "BG_IMG_URL_M":""
+        }
         });
     </script>
 </body>

@@ -109,6 +109,33 @@ input[type=radio]:checked::after {
   display: block;
 }
 
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 1.2em;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+button img {
+  padding-left: 10px;
+  display: none;
+}
+button:hover {
+  background-color: var(--primary);
+  filter: brightness(1.1);
+}
+
 .bg {
   display: flex;
   align-content: center;
@@ -400,24 +427,6 @@ input[type=radio]:checked::after {
 .pay .pay_right .info .confirm {
   margin: 20px;
   box-sizing: border-box;
-}
-.pay .pay_right .info .confirm button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background-color: var(--primary);
-  color: #fff;
-  padding: 16px 0;
-  border: none;
-  outline: none;
-  border-radius: 50px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.pay .pay_right .info .confirm button img {
-  padding-left: 10px;
-  display: none;
 }
 
 .tab_content {
@@ -975,15 +984,6 @@ input[type=radio]:checked::after {
   -webkit-text-fill-color: #D6D6D6 !important; /* 针对 WebKit 的文本填充颜色 */
   background-color: #EFEFEF;
   border: 0;
-}
-.receipt .container .button {
-  width: 100%;
-  padding: 1.2em;
-  color: #fff;
-  background-color: var(--primary);
-  border-radius: 50px;
-  border: 0;
-  cursor: pointer;
 }
 
 /* add op*/
