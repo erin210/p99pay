@@ -1198,7 +1198,9 @@ button:hover {
     font-size: 18px;
   }
   .receipt .container .tab_container .right .list .textbox > label, .receipt .container .tab_container .right .list .textbox > label > div {
-    font-size: 30px !important;
+    font-size: 14px !important;
+    line-height: 1.2; /* 確保字級正常應用 */
+    color: #f00;
     border: 1px solid #f00;
   }
 }
