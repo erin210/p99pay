@@ -472,16 +472,14 @@
     
   // }
   .receipt .container .tab_container .right .list .textbox label div{
+    -webkit-text-size-adjust: none;
+        text-size-adjust: none;
     font-size: 14px !important;
     font-weight: bold;
     line-height: 1.2; /* 確保字級正常應用 */
     color: #f00;
     border: 1px solid #f00;
     padding-left: 3em;
-    html or element selector {
-      -webkit-text-size-adjust: 100%;
-    }
-
   }
 }
  
