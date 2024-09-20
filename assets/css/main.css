@@ -1196,6 +1196,7 @@ button:hover {
   }
   .receipt .container .tab_container .right .list .textbox label {
     font-size: 14px;
+    border: 1px solid #f00;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1288,11 +1289,13 @@ button:hover {
 .select2-container--default.select2-container--disabled .select2-selection--single {
   background-color: #EFEFEF;
   border-color: #EFEFEF;
-  color: #D6D6D6;
+}
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__rendered {
+  color: #D6D6D6 !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #D6D6D6;
+  color: #727171;
 }
 
 .select2-results__option {
