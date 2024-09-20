@@ -1192,13 +1192,13 @@ button {
   .pay .pay_left .info {
     .cardPrice {
       position: fixed;
-      left: -18px;
+      left: -62px;
       bottom: 0;
       z-index: 9998;
-      width: calc(100vw + 18px);
+      width: calc(100vw + 62px);
       border-radius: 0;
       margin-bottom: 0;
-      padding: 15px 43px;
+      padding: 15px 10vw;
       background-color: var(--primary);
       justify-content: flex-start;
       align-items: flex-end;
