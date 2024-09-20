@@ -897,6 +897,10 @@ button:hover {
     right: calc(50% - 250px);
   }
 }
+html or element selector {
+  -webkit-text-size-adjust: 100%;
+}
+
 .receipt {
   width: 100%;
   padding: 20px 0;
