@@ -380,6 +380,9 @@
   .pay .pay_right .info .list form{
     height: auto;
   }
+  .receipt .container .tab_container .right .list .textbox label{
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 767px) {
   .receipt {
