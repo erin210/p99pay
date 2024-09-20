@@ -839,16 +839,18 @@ button:hover {
 @media screen and (max-device-width: 932px) and (orientation: landscape) {
   .pay .pay_left .info .cardPrice {
     position: fixed;
-    left: -62px;
+    left: 0;
     bottom: 0;
     z-index: 9998;
-    width: calc(100vw + 62px);
+    width: 100%;
     border-radius: 0;
     margin-bottom: 0;
-    padding: 15px 10vw;
+    padding: 15px 30px;
     background-color: var(--primary);
     justify-content: flex-start;
     align-items: flex-end;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
   }
   .pay .pay_left .info .cardPrice .pay_price {
     color: #fff;
