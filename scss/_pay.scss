@@ -1073,12 +1073,7 @@ button {
     }
   }
 }
-// @media screen and (max-width: 575px){
-//   .pay .pay_right .info .tab_bar.tab_scroll .type .type_box{
-//     min-width: inherit;
-//   }
 
-// }
 @media screen and (min-width: 1200px) {
   .pay {
     .pay_left {
@@ -1191,6 +1186,60 @@ button {
     }
   }
 }
+}
+
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  .pay .pay_left .info {
+    .cardPrice {
+      position: fixed;
+      left: -18px;
+      bottom: 0;
+      z-index: 9998;
+      width: calc(100vw + 18px);
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 15px 43px;
+      background-color: var(--primary);
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      .pay_price {
+        color: $white;
+        width: auto;
+        margin-right: .2em;
+        padding-left: 0;
+        font-size: 30px;
+      }
+
+      b {
+        color: $white;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      img {
+        display: none;
+      }
+
+    }
+  }
+  .pay .pay_right{
+    margin-bottom: 5vw;
+    .info .confirm{
+      position: fixed;
+        right: 25px;
+        bottom: 10px;
+        z-index: 9999;
+        margin: 0;
+        button {
+          background-color: #fff;
+          color: var(--primary);
+          padding: 10px 1.5em;
+          font-size: 14px;
+      }
+  
+    }
+  }
 }
 
 

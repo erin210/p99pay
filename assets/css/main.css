@@ -836,6 +836,52 @@ button:hover {
     padding: 0 2.8em;
   }
 }
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  .pay .pay_left .info .cardPrice {
+    position: fixed;
+    left: -18px;
+    bottom: 0;
+    z-index: 9998;
+    width: calc(100vw + 18px);
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 15px 43px;
+    background-color: var(--primary);
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .pay .pay_left .info .cardPrice .pay_price {
+    color: #fff;
+    width: auto;
+    margin-right: 0.2em;
+    padding-left: 0;
+    font-size: 30px;
+  }
+  .pay .pay_left .info .cardPrice b {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .pay .pay_left .info .cardPrice img {
+    display: none;
+  }
+  .pay .pay_right {
+    margin-bottom: 5vw;
+  }
+  .pay .pay_right .info .confirm {
+    position: fixed;
+    right: 25px;
+    bottom: 10px;
+    z-index: 9999;
+    margin: 0;
+  }
+  .pay .pay_right .info .confirm button {
+    background-color: #fff;
+    color: var(--primary);
+    padding: 10px 1.5em;
+    font-size: 14px;
+  }
+}
 .receipt {
   width: 100%;
   padding: 20px 0;
@@ -1125,6 +1171,72 @@ button:hover {
     display: block;
   }
 }
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody {
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form {
+    height: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .receipt {
+    width: 100%;
+    padding: 22px 15px;
+    box-sizing: border-box;
+  }
+  .receipt .container h1 {
+    font-size: 20px;
+  }
+  .receipt .container .form-payment {
+    min-height: inherit;
+    padding: 30px 20px;
+  }
+  .receipt .container .form-payment .tab_content .right {
+    width: 100%;
+  }
+  .receipt .container .form-payment .tab_content .right label {
+    font-size: 16px;
+  }
+  .receipt .container .form-payment .tab_content .right input {
+    margin-top: 2px;
+  }
+  .receipt .container .form-payment .tab_content .right .list .textbox label {
+    font-size: 14px;
+  }
+  .receipt .container .form-payment .tab_content .right .list .textbox input {
+    font-size: 14px;
+  }
+  .receipt .container .form-payment .tab_content .right .list .textbox .address {
+    display: block;
+  }
+  .receipt .container .form-payment .tab_content .right .list .textbox .address select {
+    width: 100%;
+  }
+  .receipt .container .form-payment .tab_content .right .list .textbox .address input {
+    width: -webkit-fill-available;
+  }
+  .receipt .container .form-payment .remember {
+    margin-top: 2em;
+  }
+  .receipt .container .form-payment .remember label {
+    font-size: 14px;
+  }
+  .receipt .container .tabs > div {
+    color: #A5A5A5;
+    padding: 1.2em 10px;
+  }
+  .receipt .container .tabs > div .imgbox {
+    display: none;
+  }
+  .receipt .container .tabs > div h3 {
+    font-size: 16px;
+  }
+  .receipt .container .tabs .tab_container {
+    display: block;
+  }
+}
 .selectBox {
   position: relative;
   padding-top: 14px;
@@ -1199,14 +1311,5 @@ button:hover {
   }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 50px;
-  }
-}
-@media screen and (max-device-width: 932px) and (orientation: landscape) {
-  body.payBody {
-    display: block;
-    min-height: auto;
-  }
-  .pay .pay_right .info .list form {
-    height: auto;
   }
 }/*# sourceMappingURL=main.css.map */

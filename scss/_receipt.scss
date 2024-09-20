@@ -371,6 +371,97 @@
 
 }
 }
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody{
+    display: block;
+    min-height: auto;
+  }
+  
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .receipt {
+    width: 100%;
+    padding: 22px 15px;
+    box-sizing: border-box;
+
+    .container {
+  h1 {
+    font-size: 20px;
+  }
+
+  .form-payment {
+    min-height: inherit;
+    padding: 30px 20px;
+
+    .tab_content {
+      .right {
+        width: 100%;
+
+        label {
+          font-size: 16px;
+        }
+
+        input {
+          margin-top: 2px;
+        }
+
+        .list {
+          .textbox {
+            label {
+              font-size: 14px;
+            }
+
+            input {
+              font-size: 14px;
+            }
+
+            .address {
+              display: block;
+
+              select {
+                width: 100%;
+              }
+
+              input {
+                width: -webkit-fill-available;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+    .remember{
+      margin-top: 2em;
+      label{
+        font-size: 14px;
+      }
+    }
+  }
+
+      .tabs{
+        &>div{
+        color: $text_grey2;
+        padding: 1.2em 10px;
+        .imgbox{
+          display: none;
+        }
+        h3 {
+          font-size: 16px;
+        }
+      } 
+      .tab_container {
+        display: block;
+
+      }
+    }
+  }
+
+}
+}
  
 
 
@@ -461,13 +552,3 @@
   
 }
 
-@media screen and (max-device-width: 932px) and (orientation: landscape) {
-  body.payBody{
-    display: block;
-    min-height: auto;
-  }
-  
-  .pay .pay_right .info .list form{
-    height: auto;
-  }
-}
