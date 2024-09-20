@@ -279,6 +279,15 @@
     }
   }
 }
+@media screen and (max-width: 991px){
+  body.payBody{
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+}
 
 
 @media screen and (max-width: 767px) {
@@ -453,11 +462,11 @@
 }
 
 @media screen and (max-device-width: 932px) and (orientation: landscape) {
-  .receipt {
-    .container{
-
-    }
+  body.payBody{
+    display: block;
+    min-height: auto;
   }
+  
   .pay .pay_right .info .list form{
     height: auto;
   }

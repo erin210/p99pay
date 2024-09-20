@@ -1059,6 +1059,15 @@ button:hover {
     margin-bottom: 2vh;
   }
 }
+@media screen and (max-width: 991px) {
+  body.payBody {
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form {
+    height: auto;
+  }
+}
 @media screen and (max-width: 767px) {
   .receipt {
     width: 100%;
@@ -1193,6 +1202,10 @@ button:hover {
   }
 }
 @media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody {
+    display: block;
+    min-height: auto;
+  }
   .pay .pay_right .info .list form {
     height: auto;
   }
