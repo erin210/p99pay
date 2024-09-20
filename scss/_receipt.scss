@@ -1,6 +1,6 @@
 .receipt {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
 
   .container {
 
@@ -279,6 +279,15 @@
     }
   }
 }
+@media screen and (max-width: 991px){
+  body.payBody{
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+}
 
 
 @media screen and (max-width: 767px) {
@@ -452,11 +461,13 @@
   
 }
 
-// @media screen and (max-device-width: 932px) and (orientation: landscape) {
-//   .receipt {
-//     padding: 30px 0;
-//     .container{
-
-//     }
-//   }
-// }
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody{
+    display: block;
+    min-height: auto;
+  }
+  
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+}

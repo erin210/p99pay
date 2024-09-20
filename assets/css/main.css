@@ -838,7 +838,7 @@ button:hover {
 }
 .receipt {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
 }
 .receipt .container {
   display: flex;
@@ -1059,6 +1059,15 @@ button:hover {
     margin-bottom: 2vh;
   }
 }
+@media screen and (max-width: 991px) {
+  body.payBody {
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form {
+    height: auto;
+  }
+}
 @media screen and (max-width: 767px) {
   .receipt {
     width: 100%;
@@ -1190,5 +1199,14 @@ button:hover {
   }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 50px;
+  }
+}
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody {
+    display: block;
+    min-height: auto;
+  }
+  .pay .pay_right .info .list form {
+    height: auto;
   }
 }/*# sourceMappingURL=main.css.map */
