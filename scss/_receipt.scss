@@ -371,25 +371,7 @@
 
 }
 }
-@media screen and (max-device-width: 932px) and (orientation: landscape) {
-  body.payBody{
-    display: block;
-    min-height: auto;
-  }
-  
-  .pay .pay_right .info .list form{
-    height: auto;
-  }
-  .receipt .container .tab_container .right label{
-    font-size: 18px;
-  }
-  .receipt .container .tab_container .right .list .textbox > label,.receipt .container .tab_container .right .list .textbox >label>div{
-    font-size: 14px !important;
-    line-height: 1.2; /* 確保字級正常應用 */
-    color: #f00;
-    border: 1px solid #f00;
-  }
-}
+
 @media screen and (max-width: 767px) {
   .receipt {
     width: 100%;
@@ -470,6 +452,26 @@
   }
 
 }
+}
+
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  body.payBody{
+    display: block;
+    min-height: auto;
+  }
+  
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+  .receipt .container .tab_container .right label{
+    font-size: 18px;
+  }
+  .receipt .container .tab_container .right .list .textbox > label,.receipt .container .tab_container .right .list .textbox >label>div{
+    font-size: 14px !important;
+    line-height: 1.2; /* 確保字級正常應用 */
+    color: #f00;
+    border: 1px solid #f00;
+  }
 }
  
 
