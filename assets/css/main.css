@@ -839,10 +839,10 @@ button:hover {
 @media screen and (max-device-width: 932px) and (orientation: landscape) {
   .pay .pay_left .info .cardPrice {
     position: fixed;
-    left: 0;
+    left: calc(50% - 360px);
     bottom: 0;
     z-index: 9998;
-    width: 100%;
+    width: 720px;
     border-radius: 0;
     margin-bottom: 0;
     padding: 15px 30px;
@@ -870,9 +870,13 @@ button:hover {
   .pay .pay_right {
     margin-bottom: 5vw;
   }
+  .pay .pay_right .list form {
+    position: relative;
+    width: 100%;
+  }
   .pay .pay_right .info .confirm {
     position: fixed;
-    right: 25px;
+    right: calc(50% - 340px);
     bottom: 10px;
     z-index: 9999;
     margin: 0;
@@ -882,6 +886,15 @@ button:hover {
     color: var(--primary);
     padding: 10px 1.5em;
     font-size: 14px;
+  }
+}
+@media screen and (max-device-width: 667px) and (orientation: landscape) {
+  .pay .pay_left .info .cardPrice {
+    left: calc(50% - 270px);
+    width: 540px;
+  }
+  .pay .pay_right .info .confirm {
+    right: calc(50% - 250px);
   }
 }
 .receipt {
