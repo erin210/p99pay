@@ -9,7 +9,7 @@ const environment = {
     },
     github: {
       pageBaseUrl: 'https://erin210.github.io/p99pay/',
-      apiBaseUrl: 'https://stage-api.p99pay.com',
+      apiBaseUrl: 'https://erin210.github.io/p99pay/',
     },
     localhost: {
       pageBaseUrl: 'http://127.0.0.1:5501/',
