@@ -738,6 +738,7 @@ button {
         .tab_bar {
           position: relative;
           top: 5vw;
+          z-index: 9;
           margin-top: -2vw;
 
           .type {

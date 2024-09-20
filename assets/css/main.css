@@ -548,6 +548,7 @@ button:hover {
   .pay .pay_right .info .tab_bar {
     position: relative;
     top: 5vw;
+    z-index: 9;
     margin-top: -2vw;
   }
   .pay .pay_right .info .tab_bar .type .type_box.active {
@@ -837,6 +838,7 @@ button:hover {
 }
 .receipt {
   width: 100%;
+  padding: 20px;
 }
 .receipt .container {
   display: flex;
@@ -1045,7 +1047,7 @@ button:hover {
     padding: 3.8vh 10px;
   }
   .receipt .container .form-payment {
-    min-height: 69vh;
+    min-height: 60vh;
     border: 1px solid #D6D6D6;
     border-radius: 10px;
     padding: 4vh 35px;

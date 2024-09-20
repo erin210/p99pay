@@ -12,8 +12,8 @@ const environment = {
       apiBaseUrl: 'https://api.p99pay.com',
     },
     localhost: {
-      pageBaseUrl: 'http://127.0.0.1:5500/',
-      apiBaseUrl: 'https://api.p99pay.com',
+      pageBaseUrl: 'http://127.0.0.1:5501/',
+      apiBaseUrl: 'http://127.0.0.1:5501/',
     },
   };
   
