@@ -1,6 +1,4 @@
-html or element selector {
-  -webkit-text-size-adjust: 100%;
-}
+
 .receipt {
   width: 100%;
   padding: 20px 0;
@@ -480,6 +478,9 @@ html or element selector {
     color: #f00;
     border: 1px solid #f00;
     padding-left: 3em;
+    html or element selector {
+      -webkit-text-size-adjust: 100%;
+    }
 
   }
 }
