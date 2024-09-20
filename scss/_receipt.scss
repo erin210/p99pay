@@ -464,9 +464,11 @@
   .pay .pay_right .info .list form{
     height: auto;
   }
-  .receipt .container .tab_container .right label{
-    font-size: 18px;
-  }
+  // .receipt .container .tab_container .right label{
+  //   -webkit-text-size-adjust: none;
+  //   text-size-adjust: none;
+  //   font-size: 18px;
+  // }
 
   // .receipt .container .tab_container .right .list .textbox > label{
     
@@ -474,7 +476,7 @@
   .receipt .container .tab_container .right .list .textbox label div{
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
-    font-size: 16px !important;
+    font-size: 14px !important;
     // font-weight: bold;
     // // line-height: 1.2; /* 確保字級正常應用 */
     // color: #f00;
