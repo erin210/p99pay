@@ -1,6 +1,6 @@
 .receipt {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
 
   .container {
 
@@ -452,11 +452,13 @@
   
 }
 
-// @media screen and (max-device-width: 932px) and (orientation: landscape) {
-//   .receipt {
-//     padding: 30px 0;
-//     .container{
+@media screen and (max-device-width: 932px) and (orientation: landscape) {
+  .receipt {
+    .container{
 
-//     }
-//   }
-// }
+    }
+  }
+  .pay .pay_right .info .list form{
+    height: auto;
+  }
+}
