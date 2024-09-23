@@ -394,8 +394,6 @@
 
         label {
 
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
           font-size: 16px;
         }
 
@@ -406,6 +404,8 @@
         .list {
           .textbox {
             label {
+              -webkit-text-size-adjust: none;
+              text-size-adjust: none;
               font-size: 14px;
             }
 
