@@ -1211,6 +1211,8 @@ button:hover {
     width: 100%;
   }
   .receipt .container .form-payment .tab_content .right label {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
     font-size: 16px;
   }
   .receipt .container .form-payment .tab_content .right input {
